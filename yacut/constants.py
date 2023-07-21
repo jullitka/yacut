@@ -1,9 +1,9 @@
-LEN_SHORT_STRING = 6
-ALLOWED_SYMBOLS = ('0', '1', '2', '3', '4', '5', '6', '7', '8',
-                   '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
-                   'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
-                   'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-                   'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-                   's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
-REGEX_PATTERN = r'^[A-Za-z0-9]{1,16}$'
+from re import escape
+from string import ascii_letters, digits
+
+ALLOWED_SYMBOLS = ascii_letters + digits
+REGEX_PATTERN = r'[' + escape(ALLOWED_SYMBOLS) + r']{1,16}$'
+MAX_ORIGINAL_SIZE = 128
+MAX_SHORT_SIZE = 16
+DEFAULT_SHORT_SIZE = 6
+NUMBER_OF_ATTEMPTS = 10
